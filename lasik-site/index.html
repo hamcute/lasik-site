@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>드림비전안과</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function HomePage() {
+  return (
+    <div className="p-6 space-y-8">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <h1 className="text-4xl font-bold text-emerald-600 mb-4">
+          더 밝게, 더 선명하게!
+        </h1>
+        <p className="text-lg text-gray-700">
+          믿을 수 있는 리식 · 라섹 시력 교정 수술 전문 <strong>드림비전안과</strong>
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="rounded-2xl shadow-xl">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-semibold text-emerald-500 mb-2">리식이란?</h2>
+            <p className="text-gray-600">
+              레이저로 각막을 절삭하여 시력을 교정하는 수술로, 빠른 회복과 선명한 시력을 제공합니다.
+            </p>
+          </CardContent>
+        </Card>
+        <Card className="rounded-2xl shadow-xl">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-semibold text-emerald-500 mb-2">라섹이란?</h2>
+            <p className="text-gray-600">
+              각막 상피를 제거 후 레이저로 시력을 교정하는 수술로, 각막이 얇은 분들에게 적합합니다.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="rounded-2xl bg-emerald-50 p-4 shadow-sm text-center">
+        <p className="text-md italic text-emerald-700">"라섹은 무섭지만 이 병원 덕분에 안심됐어요."</p>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="text-center"
+      >
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">빠른 상담 및 예약</h2>
+        <a href="tel:02-123-4567">
+          <Button className="text-lg px-8 py-4 rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700">
+            전화 상담하기
+          </Button>
+        </a>
+      </motion.div>
+    </div>
+  );
+}
